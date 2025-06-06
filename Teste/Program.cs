@@ -1,22 +1,23 @@
-﻿Console.Write("Quantidade de linhas: ");
-int linhas = int.Parse(Console.ReadLine());
-Console.Write("Quantidade de colunas: ");
-int colunas = int.Parse(Console.ReadLine());
+﻿Console.Write("Qual a ordem da matriz? ");
+int n  = int.Parse(Console.ReadLine());
+int[,] matriz = new int[n, n];
 
-int count = 0;
-
-int [,] matriz = new int[linhas, colunas];
-
-for (int i = 0; i < linhas; i++)
+for (int i = 0; i < n; i++)
 {
-    for (int j = 0; j < colunas; j++)
+    for (int j = 0; j < n; j++)
     {
-        Console.Write($"Elemento [{i}, {j}]: ");
+        Console.Write($"Elemento {i},{j}: ");
         matriz[i, j] = int.Parse(Console.ReadLine());
     }
 }
 
-foreach (var elemento in matriz)
+for (int i = 0; i < matriz.GetLength(0); i++)
 {
-    if (elemento < 0) Console.WriteLine(elemento);
+    int maiorElemento = matriz[i,0];
+    for (int j = 0; j < matriz.GetLength(1); j++)
+    {
+        maiorElemento = matriz[i, j] > maiorElemento ? matriz[i, j] : maiorElemento;
+    }
+
+    Console.WriteLine(maiorElemento);
 }
