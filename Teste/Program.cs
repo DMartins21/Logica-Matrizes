@@ -1,26 +1,22 @@
-﻿Console.Write("Quantidade de linhas:");
-int l = int.Parse(Console.ReadLine());
-Console.Write("Quantidade de colunas:");
-int c = int.Parse(Console.ReadLine());
+﻿Console.Write("Quantidade de linhas: ");
+int linhas = int.Parse(Console.ReadLine());
+Console.Write("Quantidade de colunas: ");
+int colunas = int.Parse(Console.ReadLine());
 
-int [,] matriz = new int [l,c];
+int count = 0;
 
-for (int i = 0; i < l; i++)
+int [,] matriz = new int[linhas, colunas];
+
+for (int i = 0; i < linhas; i++)
 {
-    Console.WriteLine($"Digite o valor da {i+1} linha:");
-    for (int j = 0; j < c; j++)
+    for (int j = 0; j < colunas; j++)
     {
+        Console.Write($"Elemento [{i}, {j}]: ");
         matriz[i, j] = int.Parse(Console.ReadLine());
     }
 }
 
-Console.WriteLine("Vetor:");
-for (int i = 0; i < l; i++)
+foreach (var elemento in matriz)
 {
-    int vetor = 0;
-    for (int j = 0; j < c; j++)
-    {
-        vetor += matriz[i, j];
-    }
-    Console.WriteLine(vetor);
+    if (elemento < 0) Console.WriteLine(elemento);
 }
